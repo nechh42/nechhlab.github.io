@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AeroFlow Energy Recovery System - Nechh Lab Robotics</title>
+    <meta name="description" content="Revolutionary energy recovery system for electric vehicles. 20% more range, zero charging cost.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at 20% 50%, rgba(0,245,255,0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(255,107,107,0.1) 0%, transparent 50%),
+                        #0a0a0a;
+            position: relative;
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 1200px;
+            padding: 0 20px;
+            z-index: 2;
+        }
+        
+        .patent-badge {
+            display: inline-block;
+            background: rgba(0,245,255,0.1);
+            border: 1px solid #00f5ff;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            margin-bottom: 30px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+        
+        h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #00f5ff 0%, #ff6b6b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+        }
+        
+        .tagline {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: #888;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+        
+        .cta-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+        }
+        
+        .btn {
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #00f5ff 0%, #0099cc 100%);
+            color: white;
+            box-shadow: 0 10px 30px rgba(0,245,255,0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(0,245,255,0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.3);
+        }
+        
+        /* Stats Section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .stat-card {
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            background: rgba(255,255,255,0.08);
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #00f5ff;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: #888;
+        }
+        
+        /* Video Section */
+        .video-section {
+            padding: 100px 20px;
+            text-align: center;
+            background: rgba(255,255,255,0.02);
+        }
+        
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 20px;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            text-align: center;
+            margin-bottom: 60px;
+            font-weight: 800;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: rgba(255,255,255,0.05);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            background: rgba(255,255,255,0.08);
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .feature-desc {
+            color: #888;
+            line-height: 1.6;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 20px;
+            text-align: center;
+            background: linear-gradient(180deg, transparent 0%, rgba(0,245,255,0.05) 100%);
+        }
+        
+        .contact-info {
+            background: rgba(255,255,255,0.05);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .email-link {
+            font-size: 1.5rem;
+            color: #00f5ff;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .email-link:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 20px rgba(0,245,255,0.5);
+        }
+        
+        /* Footer */
+        .footer {
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #666;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .cta-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+        
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content fade-in">
+            <div class="patent-badge">🔒 Patent Pending © 2025</div>
+            <h1>AeroFlow</h1>
+            <p class="tagline">Revolutionary Energy Recovery System for Electric Vehicles</p>
+            
+            <div class="cta-group">
+                <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                <a href="#demo" class="btn btn-secondary">Watch Demo</a>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number">20%</div>
+                    <div class="stat-label">More Range</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">28W</div>
+                    <div class="stat-label">at 60 km/h</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$0</div>
+                    <div class="stat-label">Extra Cost</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Video Section -->
+    <section class="video-section" id="demo">
+        <h2 class="section-title">See AeroFlow in Action</h2>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features">
+        <h2 class="section-title">Why AeroFlow?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3 class="feature-title">Continuous Generation</h3>
+                <p class="feature-desc">Generates electricity while your vehicle is in motion, extending range without stopping.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔋</div>
+                <h3 class="feature-title">Universal Compatibility</h3>
+                <p class="feature-desc">Designed to integrate seamlessly with any electric vehicle on the market.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌍</div>
+                <h3 class="feature-title">Sustainable Solution</h3>
+                <p class="feature-desc">Zero emissions, zero additional energy consumption - truly green technology.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">Ready to Revolutionize EVs?</h2>
+        <div class="contact-info">
+            <p style="font-size: 1.2rem; margin-bottom: 20px;">
+                For investment opportunities, partnerships, and licensing inquiries:
+            </p>
+            <a href="mailto:nechhlab.global@gmail.com" class="email-link">
+                nechhlab.global@gmail.com
+            </a>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 Nechh Lab Robotics. All rights reserved.</p>
+        <p style="margin-top: 10px;">From Konya to the World 🇹🇷</p>
+    </footer>
+    
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Add fade-in animation to elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.stat-card, .feature-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
